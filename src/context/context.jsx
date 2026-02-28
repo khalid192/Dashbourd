@@ -7,18 +7,22 @@ export default function PList({ children }) {
   const [list, setlist] = useState([]);
 
   const [search, setSearch] = useState("");
-
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(false);
 
 
   function reloud() {
-
+      setLoading(true);
+      setError(false);
       axios.get("https://jsonplaceholder.typicode.com/users")
     .then((res) => {
       setlist(res.data);
     })
     .catch((err) => {
-      console.log(err);
-    });
+      setError(true);
+
+    })
+   .finally(() => setLoading(false));
   }
 
   useEffect(() => {
@@ -66,7 +70,9 @@ export default function PList({ children }) {
           search,
           setSearch,
           filteredUsers,
-          reloud
+          reloud,
+          loading,
+          error,
         }}
       >
         {children}

@@ -7,7 +7,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-import { useContext, useState } from "react";
+
+import { useContext} from "react";
 import { Listcontext } from "./context/context";
 import { Delete } from "@mui/icons-material";
 
@@ -19,6 +20,7 @@ const style = {
   border: "1px solid",
   borderColor: "divider",
   backgroundColor: "background.paper",
+  height: "100%",
 };
 const butt = {
   width: "100%",
@@ -46,7 +48,7 @@ export default function () {
           justifyContent: "center",
         }}
       >
-        <List sx={style} aria-label="mailbox folders">
+        <List sx={style} fullHeight aria-label="mailbox folders">
           {selectedData.map((i) => (
             <div key={i.id}>
               <ListItem>
