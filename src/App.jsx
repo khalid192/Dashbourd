@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import SEARCHE from "./Search.jsx";
 import List from "./List.jsx";
 import BCHP from "./ButtonChangePage.jsx";
+import NOUSERS from "./NoUsers.jsx";
+import Loading from "./Loading.jsx";
 
 
 
@@ -24,7 +26,7 @@ function App() {
       >
         <Card
           sx={{
-            height: "80vh",
+            height: "auto",
             width: "60vw",
             padding: 0,
             display:"flex",
@@ -63,7 +65,8 @@ function App() {
           >
            User List
           </Typography>
-          <List/>
+         
+          <Loading/>
           <BCHP/>
 
 

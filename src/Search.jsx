@@ -1,8 +1,12 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
+import { useContext } from "react";
+import { Listcontext } from "./context/context";
 
 export default function SEARCHE() {
+  const {search, setSearch, reloud} = useContext(Listcontext);
+  
   return (
     <Stack
       spacing={2}
@@ -11,20 +15,20 @@ export default function SEARCHE() {
     >
       <TextField
         size="small"
+        label="Search users..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+
+            
         sx={{
           width: "350px",
-          "& .MuiInputBase-root": {
-            height: "30px",
-          },
-          "& .MuiInputBase-input": {
-            padding: "2px 6px",
-            fontSize: "16px",
-          },
         }}
+
+
       />
 
-      <Button sx={{ height: "30px" }} variant="contained">
-        Contained
+      <Button onClick={reloud} size="small" variant="contained">
+        Reload
       </Button>
 
       

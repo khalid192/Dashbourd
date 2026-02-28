@@ -6,9 +6,10 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Height } from "@mui/icons-material";
-import { useContext } from "react";
-import {Listcontext} from "./context/context"
+
+import { useContext, useState } from "react";
+import { Listcontext } from "./context/context";
+import { Delete } from "@mui/icons-material";
 
 const style = {
   p: 0,
@@ -18,8 +19,6 @@ const style = {
   border: "1px solid",
   borderColor: "divider",
   backgroundColor: "background.paper",
-
-
 };
 const butt = {
   width: "100%",
@@ -29,29 +28,40 @@ const butt = {
 };
 
 export default function () {
-    const list = useContext(Listcontext)
-    console.log(list)
+  const {selectedData,setlist} = useContext(Listcontext);
+
+
+
+ function Delete (e){  const id = parseInt(e.currentTarget.id);
+  setlist(prev => prev.filter(i => i.id !== id));
+ }
+  
   return (
-    <> <div style={{height:"100%",width:"100%",display:"flex",justifyContent:"center"}}>
-      <List sx={style} aria-label="mailbox folders">
+    <>
+      <div
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <List sx={style} aria-label="mailbox folders">
+          {selectedData.map((i) => (
+            <div key={i.id}>
+              <ListItem>
+                <Box sx={butt}>
+                  <Typography>{i.name}</Typography>
 
-        {list.map((i)=><><div key={i.id}>
-                    <ListItem>
-          <Box sx={butt}>
-            <Typography>Drafts</Typography>
-
-            <Button size="small" variant="contained"  color="error" >
-              Delete
-            </Button>
-          </Box>
-        </ListItem>
-        <Divider component="li" /></div></>
-        )}
-
-
-
-
-      </List>
+                  <Button size="small" id={i.id} onClick={Delete} variant="contained" color="error">
+                    Delete
+                  </Button>
+                </Box>
+              </ListItem>
+              <Divider component="li" />
+            </div>
+          ))}
+        </List>
       </div>
     </>
   );
