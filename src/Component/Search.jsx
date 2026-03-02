@@ -1,9 +1,14 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { useContext } from "react";
-import { Listcontext } from "./context/context";
 
+import { useContext } from "react";
+import { Listcontext } from "../context/context";
+
+
+//============================================//
+// Component to display a search bar for filtering users and a reload button
+//============================================//
 export default function SEARCHE() {
   const {search, setSearch, reloud} = useContext(Listcontext);
   

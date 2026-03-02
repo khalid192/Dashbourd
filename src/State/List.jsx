@@ -1,16 +1,17 @@
-import { Card } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+import { useContext } from "react";
+import { Listcontext } from "../context/context";
 
-import { useContext} from "react";
-import { Listcontext } from "./context/context";
-import { Delete } from "@mui/icons-material";
+//============================================//
+// Component to display the list of users with delete functionality
+//============================================//
 
 const style = {
   p: 0,
@@ -30,14 +31,9 @@ const butt = {
 };
 
 export default function () {
-  const {selectedData,setlist} = useContext(Listcontext);
-
-
-
- function Delete (e){  const id = parseInt(e.currentTarget.id);
-  setlist(prev => prev.filter(i => i.id !== id));
- }
   
+  const { selectedData, Delete } = useContext(Listcontext);
+
   return (
     <>
       <div
@@ -48,14 +44,20 @@ export default function () {
           justifyContent: "center",
         }}
       >
-        <List sx={style} fullHeight aria-label="mailbox folders">
+        <List sx={style} aria-label="mailbox folders">
           {selectedData.map((i) => (
             <div key={i.id}>
               <ListItem>
                 <Box sx={butt}>
                   <Typography>{i.name}</Typography>
 
-                  <Button size="small" id={i.id} onClick={Delete} variant="contained" color="error">
+                  <Button
+                    size="small"
+                    id={i.id}
+                    onClick={Delete}
+                    variant="contained"
+                    color="error"
+                  >
                     Delete
                   </Button>
                 </Box>

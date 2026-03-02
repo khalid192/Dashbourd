@@ -1,9 +1,11 @@
 import { Button } from "@mui/material";
-import Failed from "./icone/Failed.png";
+import Failed from "../assets/icone/Failed.png";
 
 
 
-
+//============================================//
+// Component to display a failed page with a retry button
+//============================================//
 
 export default function FailedPage() {
     return (

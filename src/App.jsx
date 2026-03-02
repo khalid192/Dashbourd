@@ -1,22 +1,26 @@
-import { useState,useContext } from "react";
+import {useContext } from "react";
 import {Listcontext} from "./context/context.jsx"
 
+//mui components
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import SEARCHE from "./Search.jsx";
-import List from "./List.jsx";
-import BCHP from "./ButtonChangePage.jsx";
-import NOUSERS from "./NoUsers.jsx";
-import Loading from "./Loading.jsx";
-import FailedPage from "./FailedPage.jsx";
 
+//============================================//
+// importing components for search, user list, pagination buttons, and state displays
+import SEARCHE from "./Component/Search.jsx";
+import List from "./State/List.jsx";
+import BCHP from "./Component/ButtonChangePage.jsx";
+import NOUSERS from "./State/NoUsers.jsx";
+import Loading from "./State/Loading.jsx";
+import FailedPage from "./State/FailedPage.jsx";
 
+//============================================//
+// Main App component that displays the user dashboard with search functionality and user list
+//============================================//
 function App() {
   const {loading,error,selectedData} = useContext(Listcontext);
-  console.log(error);
+
   return (
     <>
       <Container

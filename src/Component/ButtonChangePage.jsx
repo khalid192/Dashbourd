@@ -5,48 +5,26 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
-import { useContext, useState, useEffect } from "react";
-import { Listcontext } from "./context/context";
+import { useContext } from "react";
+import { Listcontext } from "../context/context";
 
 
+//============================================//
+// Component to display pagination buttons for navigating through user pages
+//============================================//
 export default function BCHP() {
-  const { totalPages, setPage, page ,selectedData} =
+  const { totalPages, alignment, handleChange, Next, Pervious } =
     useContext(Listcontext);
 
-  const [alignment, setAlignment] = useState(1);
+  const Blist = [];
 
-
-  const handleChange = (event, newAlignment) => {
-    newAlignment != null ? setAlignment(newAlignment) : null;
-  };
-
-  useEffect(() => {
-    setPage(alignment);
-  }, [alignment]);
-
-  useEffect(() => {
-   setAlignment(page)
-  }, [selectedData]);
-    
-  console.log(1)
-  function Next() {
-    setAlignment((i) => {
-      return Number(i) + 1;
-    });
-    setPage(alignment);
+  for (let i = 1; i <= totalPages; i++) {
+    Blist.push(
+      <ToggleButton key={i} value={i}>
+        {i}
+      </ToggleButton>,
+    );
   }
-  function Pervious() {
-    setAlignment((i) => {
-      return Number(i) - 1;
-    });
-    setPage(alignment);
-  }
-
-  const Blist = Array.from({ length: totalPages }, (_, i) => (
-    <ToggleButton key={i + 1} value={i + 1}>
-      {i + 1}
-    </ToggleButton>
-  ));
 
   return (
     <>
