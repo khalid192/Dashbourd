@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import { useContext } from "react";
-import { Listcontext } from "../context/context";
+import { Listcontext } from "../../context/context";
 
 //============================================//
 // Component to display the list of users with delete functionality

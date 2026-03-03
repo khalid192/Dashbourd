@@ -1,6 +1,6 @@
 
 import Typography from "@mui/material/Typography";
-import NoUsers from  "../assets/icone/NoUsers.png"
+import NoUsers from  "../../assets/icone/NoUsers.png"
 
 
 //============================================//

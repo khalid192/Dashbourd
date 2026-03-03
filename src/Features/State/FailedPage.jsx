@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import Failed from "../assets/icone/Failed.png";
+import Failed from "../../assets/icone/Failed.png";
 
 
 

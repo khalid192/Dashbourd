@@ -9,11 +9,12 @@ import Typography from "@mui/material/Typography";
 //============================================//
 // importing components for search, user list, pagination buttons, and state displays
 import SEARCHE from "./Component/Search.jsx";
-import List from "./State/List.jsx";
 import BCHP from "./Component/ButtonChangePage.jsx";
-import NOUSERS from "./State/NoUsers.jsx";
-import Loading from "./State/Loading.jsx";
-import FailedPage from "./State/FailedPage.jsx";
+
+import List from "./Features/State/List.jsx";
+import NOUSERS from "./Features/State/NoUsers.jsx";
+import Loading from "./Features/State/Loading.jsx";
+import FailedPage from "./Features/State/FailedPage.jsx";
 
 //============================================//
 // Main App component that displays the user dashboard with search functionality and user list
